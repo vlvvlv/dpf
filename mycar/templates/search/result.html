@@ -1,0 +1,70 @@
+{% extends 'basic.html' %}
+{% block content %}
+
+        <div class="tm-call-to-action-box">
+
+            <div class="tm-call-to-action-text">
+            <h3 class="tm-call-to-action-title">
+                저감장치 대상 차량 검색 결과
+            </h3>
+            <form action="{{ url_for('dpfcar.result') }}" class="tm-call-to-action-form" method="post">
+    <!--            <input type="text" name="car_place" id="car_place" placeholder="앞2자리+" class="tm-jiyuk-input" minlength="3" maxlength="10" required="">-->
+                <label for="carnumber">  차량번호:</label>
+                <input type="text" name="carnumber" id="carnumber" placeholder="차량번호" class="tm-car-input" minlength="6" required = "">
+
+                <label for="carkinds">  차종:</label>
+                <input list="carkinds" name="carkind" id="carkind" placeholder="전체" class="tm-chajong-input">
+                <datalist id="carkinds">
+                    <option value="전체">
+                    </option><option value="승용">
+                    </option><option value="승합">
+                    </option><option value="화물">
+                    </option><option value="특수">
+                </option></datalist>
+
+                <button type="submit" class="btn btn-primary">
+                <strong>검색</strong>
+                </button>
+            </form>
+            </div>
+        </div>
+        <div>
+
+            <table style="width:100%">
+                <thead>
+                <tr class="table-head-tr">
+                    <td>차량 번호</td>
+                    <td>차량 연식</td>
+                    <td>차량 차종</td>
+                    <td>구 분</td>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% if dpfcar_list %}
+                    {% for dpfcar in dpfcar_list %}
+                        <tr>
+                            <td>{{ dpfcar.carnumber }}</td>
+                            <td>{{ dpfcar.caryear }}</td>
+                            <td>{{ dpfcar.carkind }}</td>
+                            {% if dpfcar.contact_set %}
+                                <td><a href="{{ url_for('contact.result') }}" >고객관리</a></td>
+                            {% else %}
+                                <td><a href="{{ url_for('contact.regit', dpfcar_id=dpfcar.id) }}" >등록하기</a></td>
+                            {% endif %}
+
+
+                        </tr>
+                    {% endfor %}
+
+                {% else %}
+                    <tr>
+                        <td colspan = "4" >** 검색 결과가 없습니다.**</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}
+

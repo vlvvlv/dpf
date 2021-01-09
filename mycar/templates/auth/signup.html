@@ -1,0 +1,42 @@
+{% extends "basic.html" %}
+{% block content %}
+<div class="tm-call-to-action-box">
+<div class="tm-call-to-action-text">
+     <form method="post" class="tm-call-to-action-form">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+        <h3 class="tm-call-to-action-title">
+                계정등록
+        </h3>
+        <p class="tm-call-to-action-description">
+            새로운 계정을 등록합니다. 모든 항목은 필수입니다.
+        </p>
+        <div>
+            <input type="text" class="tm-car-input" name="userid" id="userid" placeholder="User ID"
+                   value="{{ form.userid.data or '' }}">
+        </div>
+        <div>
+            <input type="password" class="tm-car-input" name="password1" id="password1" placeholder="Password1"
+                   value="{{ form.password1.data or '' }}">
+        </div>
+        <div>
+            <input type="password" class="tm-car-input" name="password2" id="password2" placeholder="Password2"
+                   value="{{ form.password2.data or '' }}">
+        </div>
+        <div>
+            <input type="text" class="tm-car-input" name="username" id="username" placeholder="Your Name"
+                   value="{{ form.username.data or '' }}">
+        </div>
+        <div>
+            <input type="text" class="tm-car-input" name="usertel" id="usertel" placeholder="Your Telephone"
+                   value="{{ form.usertel.data or '' }}">
+        </div>
+        <div>
+            <input type="text" class="tm-car-input" style="width:250px" name="email" id="email" placeholder="Your Email"
+                   value="{{ form.email.data or '' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">생성하기</button>
+    </form>
+</div>
+</div>
+{% endblock %}

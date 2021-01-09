@@ -1,0 +1,45 @@
+<html lang="Ko">
+<head>
+<meta charset="UTF-8">
+<title>DPF Car Search</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="nav" id="nav">
+        <ul>
+            <li >
+                  <a class="nav"  href="{{ url_for('main.index') }}" method="post">
+                  <h1 class="tm-brand-name"><strong> DPF Car System </strong></h1></a>
+            </li>
+            <li >
+            {% if g.user %}
+                <li class="nav">
+                    <a class="nav-link" href="{{ url_for('contact.result') }}">나의 고객관리</a>
+                </li>
+                <li class="nav">
+                    <a class="nav-link" href="{{ url_for('auth.logout') }}">{{ g.user.username }}[로그아웃]</a>
+                </li>
+
+            {% else %}
+                <li>
+                <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
+                </li>
+                <li >
+                    <a class="nav-link" href="{{ url_for('auth.signup') }}">계정생성</a>
+                </li>
+             {% endif %}
+        </ul>
+    </div>
+
+ <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+{% block content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 End -->
+</body></html>

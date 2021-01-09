@@ -1,0 +1,27 @@
+{% extends "basic.html" %}
+{% block content %}
+<div class="tm-call-to-action-box">
+<div class="tm-call-to-action-text">
+    <form method="post" class="tm-call-to-action-form">
+
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+        <h3 class="tm-call-to-action-title">
+                로그인
+        </h3>
+        <p class="tm-call-to-action-description">
+            당신의 <strong>아이디</strong>와 <strong>패스워드</strong>는 필수 입력입니다.
+        </p>
+
+        <input type="text" name="userid" id="userid" placeholder="User ID" class="tm-user" required
+               value="{{ form.userid.data or '' }}">
+
+        <input type="password" name="password" id="password" placeholder="Password" class="tm-pw" required
+               value="{{ form.password.data or '' }}">
+
+        <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'basic.html' %}
+{% block content %}
+
+        <div class="tm-call-to-action-box">
+
+            <div class="tm-call-to-action-text">
+            <h3 class="tm-call-to-action-title">
+                나의 고객 관리
+            </h3>
+            <form action="{{ url_for('contact.resultby') }}" class="tm-call-to-action-form" method="post">
+                <label for="">검색요건</label>
+                <input type="number" name="ownernum4" id="ownernum4" placeholder="차량뒷 4숫자" min="0000" max="9999" class="tm-car-input">
+                <input type="text" name="ownername" id="ownername" placeholder="소유자명" class="tm-car-input">
+                <input type="text" name="ownertel" id="ownertel" placeholder="전화번호" class="tm-car-input">
+
+                <button type="submit" class="btn btn-primary" onclick="return searchchk();">
+                <strong>검색</strong>
+                </button>
+            </form>
+            </div>
+        </div>
+        <div>
+
+            <table style="width:100%">
+                <thead>
+                <tr class="table-head-tr">
+                    <td>DPF 번호</td>
+                    <td>차량 연식</td>
+                    <td>차량뒷 4숫자</td>
+                    <td>소유자 명</td>
+                    <td>전화 번호</td>
+                    <td>기타 사항</td>
+                    <td>등록일</td>
+                    <td>구 분</td>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% if contact_list %}
+                    {% for contact in contact_list %}
+
+                        <tr>
+                            <td>{{ contact.dpfcar.carnumber }}</td>
+                            <td>{{ contact.dpfcar.caryear }}</td>
+                            <td>{{ contact.ownernum4 }}</td>
+                            <td>{{ contact.ownername }}</td>
+                            <td>{{ contact.ownertel }}</td>
+                            <td>{{ contact.owneretc }}</td>
+                            <td>{{ contact.create_date|datetime }}</td>
+
+                            <td><a href="{{ url_for('contact.modify', contact_id=contact.id) }}" >변경</a>
+                            <a href="{{ url_for('contact.delete', contact_id=contact.id) }}" onclick="return delchk();">삭제</a></td>
+
+                        </tr>
+                    {% endfor %}
+
+                {% else %}
+                    <tr>
+                        <td colspan = "8" >** 검색 결과가 없습니다.**</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}
+
+{% block script %}
+<script type='text/javascript'>
+function delchk(){
+    return confirm("삭제하시겠습니까?");
+}
+
+function searchchk(){
+    if (document.getElementById("carnumber4").value || document.getElementById("ownername").value || document.getElementById("ownertel").value){
+        return ;
+    }else{
+        alert("검색 내용이 없습니다. 검색할 사항을 입력해 주세요");
+        return false;
+    }
+}
+</script>
+{% endblock %}
+

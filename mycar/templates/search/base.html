@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="tm-call-to-action-box">
+
+        <div class="tm-call-to-action-text">
+        <h3 class="tm-call-to-action-title">
+            저감장치 대상 차량 검색
+        </h3>
+        <p class="tm-call-to-action-description">
+            <strong>차량번호</strong>는 필수 입력입니다.
+        </p>
+
+
+        <form action="{{ url_for('dpfcar.result') }}" class="tm-call-to-action-form" method="post">
+<!--            <input type="text" name="car_place" id="car_place" placeholder="앞2자리+" class="tm-jiyuk-input" minlength="3" maxlength="10" required="">-->
+            <label for="carnumber">  차량번호:</label>
+            <input type="text" name="carnumber" id="carnumber" placeholder="검색할 번호입력" class="tm-car-input" minlength="6" required = "">
+
+            <label for="carkinds">  차종:</label>
+            <input list="carkinds" name="carkind" id="carkind" placeholder="전체" class="tm-chajong-input">
+            <datalist id="carkinds">
+                <option value="전체">
+                </option><option value="승용">
+                </option><option value="승합">
+                </option><option value="화물">
+                </option><option value="특수">
+            </option></datalist>
+
+            <button type="submit" class="btn btn-primary">
+            <strong>검색</strong>
+            </button>
+        </form></div>
+        </div>
+    </div>
+{% endblock %}
+
