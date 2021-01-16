@@ -59,7 +59,7 @@ ul {
 }
 
 .btn-secondary {
-	background-color: #669999;
+	background-color: #c8e1fa;
 	border: none;
 }
 
@@ -165,7 +165,7 @@ ul {
   display: inline-block;
 }
 .nav-link{
-  font-size: 13px;
+  font-size: 14px;
   width: 200px;
   border-bottom: 1px solid #208af3;
   align-items: right;
@@ -347,6 +347,17 @@ ul.tm-list-plus li:before {
   margin-bottom: 20px;
 }
 
+.tm-call-to-footer-box {
+  color: #5f6061;
+  border: 1px solid #cfd0d1;
+  padding: 1px 1px 1px ;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+}
+
 .tm-call-to-action-icon {
   padding: 25px 28px;
   border: 1px solid #cfd0d1;
@@ -391,6 +402,8 @@ ul.tm-list-plus li:before {
 
 @media (max-width: 660px) {
   .tm-call-to-action-box { flex-direction: column; }
+
+  .tm-call-to-footer-box { flex-direction: column; }
 
   .tm-call-to-action-text {
     margin-left: 0;

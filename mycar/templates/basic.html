@@ -17,21 +17,21 @@
             <li >
             {% if g.user %}
                 <li class="nav">
-                    <a class="nav-link" href="{{ url_for('contact.result') }}">나의 고객관리</a>
+                    <a class="nav-link" href="{{ url_for('contact.result') }}">나의 고객관리</a>&nbsp;
                 </li>
                 <li class="nav">
-                    <a class="nav-link" href="{{ url_for('auth.logout') }}">{{ g.user.username }}[로그아웃]</a>
+                    <a class="nav-link" href="{{ url_for('auth.logout') }}">{{ g.user.username }}[로그아웃]</a>&nbsp;
                 </li>
                 {% if g.user.userid == "luck950" %}
                     <li >
-                        <a class="nav-link" href="{{ url_for('auth.signup') }}">계정생성</a>
+                        <a class="nav-link" href="{{ url_for('auth.signup') }}">계정생성</a>&nbsp;
                     </li>
                 {% else %}
                 {% endif %}
 
             {% else %}
                 <li>
-                <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
+                <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>&nbsp;
                 </li>
 
             {% endif %}
@@ -42,6 +42,17 @@
 {% block content %}
 {% endblock %}
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+    <div class="tm-call-to-footer-box">
+
+        <div class="nav">
+
+                  <a class="nav" >
+                  <h5 class="">2021(c) All rights Reserved. HeangWoon Coop.</h5></a>
+        </div>
+
+    </div>
+
 <!-- 자바스크립트 Start -->
 {% block script %}
 {% endblock %}

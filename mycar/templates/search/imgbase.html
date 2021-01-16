@@ -1,0 +1,58 @@
+{% extends 'basic.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="tm-call-to-action-box">
+
+        <div class="tm-call-to-action-text">
+            <li>
+                <a class="nav-link" href="{{ url_for('dpfcar.go_base') }}">번호 검색으로</a>&nbsp;
+            </li>
+        <h3 class="tm-call-to-action-title">
+            저감장치 대상 차량 사진검색
+        </h3>
+        <p class="tm-call-to-action-description">
+            검색할 차의 <strong>차량번호 사진파일</strong>을 먼저 선택 입력하세요.
+        </p>
+
+
+        <form action="{{ url_for('dpfcar.img_result') }}" class="tm-call-to-action-form" method="post" enctype="multipart/form-data" >
+            <div><label for="carimg">  차량번호 사진:</label>
+            <div><input type="file" name="file" id="carimg" required = "">
+                <button type="submit" class="btn btn-primary">
+                <strong>이미지검색</strong>
+            </div>
+            <img id="image_section" src="#" alt=" Upload Image" width="450"></img>
+            </div>
+
+
+            </button>
+        </form></div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type='text/javascript'>
+function readUploadImage( inputObject ){
+     if (inputObject.files && inputObject.files[0]) {
+        if ( !(/image/i).test(inputObject.files[0].type ) ){
+				alert("이미지 파일을 선택해 주세요!");
+				return false;
+			}
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_section').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(inputObject.files[0]);
+     }
+}
+
+$("#carimg").change(function(){
+   readUploadImage(this);
+});
+</script>
+{% endblock %}
+

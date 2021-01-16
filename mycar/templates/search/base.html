@@ -4,8 +4,11 @@
         <div class="tm-call-to-action-box">
 
         <div class="tm-call-to-action-text">
+             <li>
+                <a class="nav-link" href="{{ url_for('dpfcar.go_imgbase') }}">이미지 검색으로</a>&nbsp;
+            </li>
         <h3 class="tm-call-to-action-title">
-            저감장치 대상 차량 검색
+            저감장치 대상 차량 번호검색
         </h3>
         <p class="tm-call-to-action-description">
             검색할 차의 <strong>차량번호</strong>을 입력하세요. 차량번호는 필수입니다.
@@ -28,10 +31,10 @@
             </option></datalist>
 
             <button type="submit" class="btn btn-primary">
-            <strong>검색</strong>
-            </button>
-        </form></div>
+            <strong>번호검색</strong>
+        </form>
         </div>
+
     </div>
 {% endblock %}
 

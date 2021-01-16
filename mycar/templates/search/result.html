@@ -9,10 +9,10 @@
             </h3>
             <form action="{{ url_for('dpfcar.result') }}" class="tm-call-to-action-form" method="post">
     <!--            <input type="text" name="car_place" id="car_place" placeholder="앞2자리+" class="tm-jiyuk-input" minlength="3" maxlength="10" required="">-->
-                <label for="carnumber">  차량번호:</label>
+                <div><label for="carnumber">  차량번호:</label>
                 <input type="text" name="carnumber" id="carnumber" value="{{ carnumber }}" class="tm-car-input" minlength="6" required = "">
-
-                <label for="carkinds">  차종:</label>
+                </div>
+                <label for="carkinds">  차량종류:</label>
                 <input list="carkinds" name="carkind" id="carkind" placeholder="{{ carkind }}" class="tm-chajong-input">
                 <datalist id="carkinds">
                     <option value="전체">

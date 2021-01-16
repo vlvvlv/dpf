@@ -1,5 +1,5 @@
 .idea
-pybo.db
+mycar.db
 *.pyc
 __pycache__
 logs
