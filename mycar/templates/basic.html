@@ -22,15 +22,19 @@
                 <li class="nav">
                     <a class="nav-link" href="{{ url_for('auth.logout') }}">{{ g.user.username }}[로그아웃]</a>
                 </li>
+                {% if g.user.userid == "luck950" %}
+                    <li >
+                        <a class="nav-link" href="{{ url_for('auth.signup') }}">계정생성</a>
+                    </li>
+                {% else %}
+                {% endif %}
 
             {% else %}
                 <li>
                 <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
                 </li>
-                <li >
-                    <a class="nav-link" href="{{ url_for('auth.signup') }}">계정생성</a>
-                </li>
-             {% endif %}
+
+            {% endif %}
         </ul>
     </div>
 

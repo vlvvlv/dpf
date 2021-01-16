@@ -7,11 +7,14 @@
             <h3 class="tm-call-to-action-title">
                 나의 고객 관리
             </h3>
+                <p class="tm-call-to-action-description">
+            나의 고객중에서 차량번호의 뒷 숫자4자리 또는 차량소유자의 이름이나 전화번호로 조회가 가능합니다.
+        </p>
             <form action="{{ url_for('contact.resultby') }}" class="tm-call-to-action-form" method="post">
                 <label for="">검색요건</label>
-                <input type="number" name="ownernum4" id="ownernum4" placeholder="차량뒷 4숫자" min="0000" max="9999" class="tm-car-input">
-                <input type="text" name="ownername" id="ownername" placeholder="소유자명" class="tm-car-input">
-                <input type="text" name="ownertel" id="ownertel" placeholder="전화번호" class="tm-car-input">
+                <input type="number" name="ownernum4" id="ownernum4" placeholder="차량뒷 4숫자" min="0000" max="9999" class="tm-car-input" value = "{{ ownernum4 }}">
+                <input type="text" name="ownername" id="ownername" placeholder="소유자명" class="tm-car-input" value = "{{ ownername }}">
+                <input type="text" name="ownertel" id="ownertel" placeholder="전화번호" class="tm-car-input" value = "{{ ownertel }}">
 
                 <button type="submit" class="btn btn-primary" onclick="return searchchk();">
                 <strong>검색</strong>

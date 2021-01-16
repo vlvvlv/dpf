@@ -81,7 +81,9 @@ def resultby():
         contact_list = Contact.query.filter(and_(Contact.user_id == g.user.id,Contact.ownernum4 == request.form['ownernum4'])).all()
     elif request.form['ownername'] :
         contact_list = Contact.query.filter(and_(Contact.user_id == g.user.id,Contact.ownername == request.form['ownername'])).all()
-    else:
+    elif request.form['ownertel']:
         contact_list = Contact.query.filter(and_(Contact.user_id == g.user.id,Contact.ownertel ==request.form['ownertel'])).all()
-
-    return render_template('contact/result.html', contact_list=contact_list)
+    else:
+        contact_list = ""
+    return render_template('contact/result.html', contact_list=contact_list, ownernum4=request.form['ownernum4'],ownername =request.form['ownername'],
+                           ownertel=request.form['ownertel'])

@@ -30,4 +30,4 @@ def result():
                     Dpfcar.carnumber == car_num4_03)).all()
     else:
         dpfcar_list = ""
-    return render_template('search/result.html', dpfcar_list=dpfcar_list)
+    return render_template('search/result.html', dpfcar_list=dpfcar_list,carnumber=carnumber ,carkind=carkind)
