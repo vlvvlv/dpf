@@ -336,7 +336,7 @@ def search_num(carnumimg):
 
     cv2.rectangle(img_out, pt1=(info['x'], info['y']), pt2=(info['x']+info['w'], info['y']+info['h']), color=(255,0,0), thickness=2)
 
-    cv2.imwrite(chars + '.jpg', img_out)
+#    cv2.imwrite(chars + '.jpg', img_out)
 
     return chars
 
