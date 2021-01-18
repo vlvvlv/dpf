@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, url_for, request
+from flask import Blueprint, render_template, url_for, request, flash
+from werkzeug.utils import redirect
 from werkzeug.utils import secure_filename
 import mycar.searchnum
 from mycar.models import Dpfcar
@@ -41,7 +42,14 @@ def img_result():
         carnumimg= request.files['file'].read()
 
         # print(secure_filename(f.filename))
-        carnumber = mycar.searchnum.search_num(carnumimg)
+        try:
+            carnumber = mycar.searchnum.search_num(carnumimg)
+        except:
+            flash('차량번호 이미지 찾기가 실패하였습니다.')
+            # carnumber = ""
+            # dpfcar_list = ""
+            # return render_template('search/result.html', dpfcar_list=dpfcar_list, carnumber=carnumber)
+            return redirect(url_for('dpfcar.go_imgbase'))
         carnumin = carnumber[-4:]
         car_num4_01 = carnumber[:-4]+carnumin[0:2] + "**"
         car_num4_02 = carnumber[:-4]+carnumin[0] + "**" + carnumin[3]

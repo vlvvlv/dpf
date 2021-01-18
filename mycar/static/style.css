@@ -156,7 +156,7 @@ ul {
 }
 
 .nav a {
-  text-decoration:none
+  text-decoration:none;
 }
 .nav {
   display: flex;
@@ -170,6 +170,7 @@ ul {
   border-bottom: 1px solid #208af3;
   align-items: right;
   justify-content: right;
+  text-decoration:none;
 }
 
 .tm-brand-name {

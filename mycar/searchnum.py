@@ -21,8 +21,8 @@ def search_num(carnumimg):
 
     height, width, channel = img_ori.shape
 
-    plt.figure(figsize=(12, 10))
-    plt.imshow(img_ori, cmap='gray')
+    # plt.figure(figsize=(12, 10))
+    # plt.imshow(img_ori, cmap='gray')
 
 
     #############################  bgr 로 바꿈  #######################################
@@ -73,8 +73,8 @@ def search_num(carnumimg):
 
     cv2.drawContours(temp_result, contours=contours, contourIdx=-1, color=(255, 255, 255))  # -1 전체 컨투어 그림
 
-    plt.figure(figsize=(12, 10))
-    plt.imshow(temp_result)
+    # plt.figure(figsize=(12, 10))
+    # plt.imshow(temp_result)
 
     temp_result = np.zeros((height, width, channel), dtype=np.uint8)
 
@@ -318,7 +318,7 @@ def search_num(carnumimg):
                     has_digit = True
                 result_chars += c
 
-        print(result_chars)
+        # print(result_chars)
         plate_chars.append(result_chars)
 
         if has_digit and len(result_chars) > longest_text:
